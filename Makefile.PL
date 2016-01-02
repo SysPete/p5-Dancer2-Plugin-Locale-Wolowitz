@@ -15,8 +15,11 @@ WriteMakefile(
         'ExtUtils::MakeMaker' => 0,
     },
     BUILD_REQUIRES => {
+        'File::Spec' => 0,
+        'HTTP::Cookies' => 0,
+        'HTTP::Request::Common' => 0,
+        'Plack'      => "1.0029",
         'Test::More' => "0.96",
-        'Test::TCP'  => "0",
     },
     PREREQ_PM => {
         'Dancer2'          => "0",
