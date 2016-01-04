@@ -4,7 +4,6 @@ use 5.010;
 use strict;
 use warnings;
 
-use Dancer2;
 use Dancer2::FileUtils;
 use Dancer2::Plugin;
 use I18N::AcceptLanguage;
@@ -131,7 +130,7 @@ sub _detect_lang_from_browser {
 
     my $conf = $dsl->{app}{config}{plugins}{'Locale::Wolowitz'};
     my $acceptor = I18N::AcceptLanguage->new(defaultLanguage => $conf->{fallback} // "");
-    return $acceptor->accepts($dsl->request->accept_language, $conf->{lang_available});
+    return $acceptor->accepts($dsl->app->request->accept_language, $conf->{lang_available});
 }
 
 =head1 AUTHOR
@@ -195,6 +194,6 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-register_plugin for_versions => [ 2 ] ;
+register_plugin;
 
-1; # End of Dancer2::Plugin::Locale::Wolowitz
+1;
